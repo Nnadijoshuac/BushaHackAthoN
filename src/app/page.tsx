@@ -4,9 +4,9 @@ import { MarketingHero } from "@/components/marketing-hero";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[linear-gradient(180deg,_#f8fbff_0%,_#f5f7fb_42%,_#f6f7f3_100%)]">
+    <div className="min-h-screen bg-[#aeb5c0]">
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
-        <header className="flex items-center justify-between rounded-[2rem] border border-slate-200 bg-white px-5 py-4 shadow-[0_24px_80px_-56px_rgba(15,23,42,0.25)]">
+        <header className="flex items-center justify-between rounded-[2rem] border border-white/50 bg-white/55 px-5 py-4 shadow-[0_28px_80px_-56px_rgba(15,23,42,0.42)] backdrop-blur-xl">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-blue-600 text-sm font-semibold text-white">
               B
@@ -31,7 +31,7 @@ export default function Home() {
         <main className="space-y-14 py-12">
           <MarketingHero />
           <section className="grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="rounded-[2rem] border border-slate-200 bg-white p-6">
+            <div className="rounded-[2rem] border border-white/60 bg-white/58 p-6 shadow-[0_28px_80px_-56px_rgba(15,23,42,0.35)] backdrop-blur-xl">
               <p className="text-sm font-medium text-blue-600">Why it feels easier</p>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950">
                 Clear flows, not finance clutter
@@ -42,26 +42,26 @@ export default function Home() {
                   "Use plain labels for links, transactions, and settlements",
                   "See next actions immediately instead of decoding a wallet interface",
                 ].map((copy) => (
-                  <div key={copy} className="rounded-2xl bg-slate-50 px-4 py-4 text-sm leading-6 text-slate-600">
+                  <div key={copy} className="rounded-2xl bg-white/70 px-4 py-4 text-sm leading-6 text-slate-600">
                     {copy}
                   </div>
                 ))}
               </div>
             </div>
-            <div className="rounded-[2rem] border border-slate-200 bg-slate-950 p-6 text-white">
-              <p className="text-sm text-white/60">Designed for daily operations</p>
+            <div className="rounded-[2rem] border border-[#ffe39b]/40 bg-[linear-gradient(180deg,rgba(255,243,199,0.92),rgba(255,234,171,0.9))] p-6 text-slate-900 shadow-[0_28px_80px_-56px_rgba(15,23,42,0.35)]">
+              <p className="text-sm text-slate-600">Designed for daily operations</p>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-2xl bg-white/8 p-5">
-                  <Link2 className="h-5 w-5 text-blue-300" />
+                <div className="rounded-2xl bg-white/65 p-5">
+                  <Link2 className="h-5 w-5 text-slate-900" />
                   <p className="mt-4 text-lg font-medium">Payment links</p>
-                  <p className="mt-2 text-sm leading-6 text-white/68">
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
                     Send a professional payment request your client can understand instantly.
                   </p>
                 </div>
-                <div className="rounded-2xl bg-white/8 p-5">
-                  <BanknoteArrowUp className="h-5 w-5 text-blue-300" />
+                <div className="rounded-2xl bg-white/65 p-5">
+                  <BanknoteArrowUp className="h-5 w-5 text-slate-900" />
                   <p className="mt-4 text-lg font-medium">Local settlement</p>
-                  <p className="mt-2 text-sm leading-6 text-white/68">
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
                     Move available funds to your bank account without crypto-style mental overhead.
                   </p>
                 </div>
@@ -90,7 +90,7 @@ export default function Home() {
               return (
                 <div
                   key={item.title}
-                  className="rounded-[2rem] border border-slate-200 bg-white p-6"
+                  className="rounded-[2rem] border border-white/60 bg-white/58 p-6 shadow-[0_28px_80px_-56px_rgba(15,23,42,0.35)] backdrop-blur-xl"
                 >
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-50 text-blue-700">
                     <Icon className="h-5 w-5" />
@@ -103,16 +103,16 @@ export default function Home() {
               );
             })}
           </section>
-          <section className="flex flex-col justify-between gap-6 rounded-[2rem] border border-slate-200 bg-slate-950 px-6 py-8 text-white lg:flex-row lg:items-center">
+          <section className="flex flex-col justify-between gap-6 rounded-[2rem] border border-white/55 bg-white/50 px-6 py-8 text-slate-950 shadow-[0_28px_80px_-56px_rgba(15,23,42,0.35)] backdrop-blur-xl lg:flex-row lg:items-center">
             <div>
-              <p className="text-sm text-white/60">Ready to see the simpler flow?</p>
+              <p className="text-sm text-slate-500">Ready to see the simpler flow?</p>
               <h3 className="mt-2 text-3xl font-semibold tracking-tight">
                 Open the BushaPay dashboard and follow the product from collection to settlement.
               </h3>
             </div>
             <Link
               href="/app"
-              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-5 py-3 text-sm font-medium text-slate-950"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-slate-950 px-5 py-3 text-sm font-medium text-white"
             >
               Enter dashboard
               <ArrowUpRight className="h-4 w-4" />
