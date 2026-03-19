@@ -1,65 +1,87 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight, Globe2, Landmark, Link2 } from "lucide-react";
+import { MarketingHero } from "@/components/marketing-hero";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.12),_transparent_28%),linear-gradient(180deg,_#fafcff_0%,_#f6f7f3_55%,_#eef3f8_100%)]">
+      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
+        <header className="flex items-center justify-between rounded-[2rem] border border-slate-200 bg-white/80 px-5 py-4 backdrop-blur">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-blue-600 text-sm font-semibold text-white">
+              B
+            </div>
+            <div>
+              <p className="font-semibold text-slate-950">BushaPay</p>
+              <p className="text-sm text-slate-500">Business payments that feel familiar</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <Link href="/login" className="text-sm font-medium text-slate-600">
+              Log in
+            </Link>
+            <Link
+              href="/signup"
+              className="rounded-2xl bg-slate-950 px-4 py-2 text-sm font-medium text-white"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              Get started
+            </Link>
+          </div>
+        </header>
+        <main className="space-y-12 py-12">
+          <MarketingHero />
+          <section className="grid gap-4 md:grid-cols-3">
+            {[
+              {
+                title: "Branded payment links",
+                icon: Link2,
+                copy: "Launch clean payment pages in minutes with fixed amount, currency, expiry, and description.",
+              },
+              {
+                title: "Clear payment tracking",
+                icon: Globe2,
+                copy: "See what is pending, paid, or failed without digging through chats or bank alerts.",
+              },
+              {
+                title: "Local settlements",
+                icon: Landmark,
+                copy: "Route funds to saved recipients and settle in local currency with a calm finance workflow.",
+              },
+            ].map((item) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={item.title}
+                  className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_20px_80px_-48px_rgba(15,23,42,0.35)]"
+                >
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-50 text-blue-700">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h2 className="mt-5 text-xl font-semibold tracking-tight text-slate-950">
+                    {item.title}
+                  </h2>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">{item.copy}</p>
+                </div>
+              );
+            })}
+          </section>
+          <section className="flex flex-col justify-between gap-6 rounded-[2rem] border border-slate-200 bg-slate-950 px-6 py-8 text-white lg:flex-row lg:items-center">
+            <div>
+              <p className="text-sm text-white/60">Ready for the demo flow?</p>
+              <h3 className="mt-2 text-3xl font-semibold tracking-tight">
+                Open the BushaPay dashboard and walk the full payments story.
+              </h3>
+            </div>
+            <Link
+              href="/app"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-5 py-3 text-sm font-medium text-slate-950"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+              Enter dashboard
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </section>
+        </main>
+      </div>
     </div>
   );
 }

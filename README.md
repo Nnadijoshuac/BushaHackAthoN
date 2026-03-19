@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BushaPay
 
-## Getting Started
+BushaPay is a premium business tool for freelancers, creators, and small businesses that need to receive global payments, track who paid, and settle funds locally without exposing crypto mechanics.
 
-First, run the development server:
+## Setup
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Run `npm install`
+2. Copy `.env.example` to `.env.local`
+3. Run `npm run dev`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `DEMO_MODE=true`
+- `NEXT_PUBLIC_DEMO_MODE=true`
+- `NEXT_PUBLIC_APP_URL=http://localhost:3000`
+- `NEXT_PUBLIC_SUPABASE_URL=...`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY=...`
+- `SUPABASE_SERVICE_ROLE_KEY=...`
+- `BUSHA_API_BASE_URL=https://api.busha.so`
+- `BUSHA_SECRET_KEY=...`
+- `BUSHA_PROFILE_ID=...`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+If `BUSHA_SECRET_KEY` is missing, BushaPay falls back to demo responses automatically.
 
-## Learn More
+## Supabase
 
-To learn more about Next.js, take a look at the following resources:
+Run [schema.sql](/c:/Users/chimd/Desktop/0xserenity/Busha/supabase/schema.sql) to create:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `profiles`
+- `busha_customers`
+- `payment_links`
+- `payment_requests`
+- `recipients`
+- `transfers`
+- `balances_cache`
+- `webhook_events`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Busha integration
 
-## Deploy on Vercel
+The client wrapper is in [client.ts](/c:/Users/chimd/Desktop/0xserenity/Busha/src/lib/busha/client.ts). It injects `X-BU-PROFILE-ID`, centralizes auth headers, handles API errors, and swaps to mock data in demo mode.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Demo flow
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Visit `/`
+2. Go through `/signup`
+3. Complete `/app/onboarding`
+4. Create a link in `/app/payment-links/new`
+5. Open `/pay/brand-sprint`
+6. Review `/app`, `/app/balances`, `/app/transactions`, `/app/recipients`, and `/app/settlements`
