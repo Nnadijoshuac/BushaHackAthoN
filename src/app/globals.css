@@ -28,6 +28,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
+  text-rendering: optimizeLegibility;
 }
 
 a,
@@ -41,6 +42,21 @@ textarea {
     background-color 140ms ease,
     box-shadow 140ms ease,
     transform 140ms ease;
+}
+
+button,
+input,
+select,
+textarea {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.16);
 }
 
 ::selection {
